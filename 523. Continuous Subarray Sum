@@ -1,0 +1,29 @@
+class Solution {
+    public boolean checkSubarraySum(int[] nums, int k) {
+        
+        if(k==1 ){
+            if(nums.length<2){
+                if(nums[0]==0 || nums[0]==1){
+                    return false;
+                }    
+            }
+           return true;
+        }
+        
+        for(int q=0; q<nums.length ; q++){
+            int ans=nums[q];
+            for(int i=q; i<nums.length-1 ;i++){
+                ans=ans+nums[i+1]; 
+                if(ans%k==0){
+                    return true;
+                }
+            }
+
+            if(nums.length>99999){
+                return false ;   
+            }
+        }
+        
+        return false;
+    }
+}
