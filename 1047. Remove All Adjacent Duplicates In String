@@ -1,0 +1,21 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        // char[] ans = valueOf(s).toCharArray();
+        LinkedList<Character> list = new LinkedList<>();
+        char[] ans = s.toCharArray();
+        for (char c : ans) {
+            if (!list.isEmpty() && list.getLast() == c) {
+                list.removeLast();
+            } else {
+                list.addLast(c);
+            }
+        }
+        if (list.size() == 0) return "";
+
+        StringBuilder sb = new StringBuilder();
+
+        while (list.size() != 0) sb.append(list.removeFirst());
+
+        return sb.toString();
+    }
+}
