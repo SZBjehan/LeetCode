@@ -1,0 +1,47 @@
+class Solution {
+    public boolean isValid(String s) {
+        
+        char []c = new char[s.length()];    // Converting the String to char array
+        Stack<Character> list = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            c[i] = s.charAt(i);
+            
+            if(c[i] == '(' || c[i] == '{' || c[i]=='['){
+                list.add(c[i]);
+            }
+            else{
+                if(c[i] == ')' && !list.isEmpty() && list.peek()=='('){
+                    char x= list.peek();
+
+                    
+                    list.pop();
+
+                }
+                else if(c[i] == '}' && !list.isEmpty() && list.peek()=='{'){
+                    list.pop();
+
+
+                }
+                else if(c[i] == ']' && !list.isEmpty() && list.peek()=='['){
+                    list.pop();
+
+
+                }
+                else{
+                    return false;
+                }
+                
+            }
+            
+
+        }
+        
+        if(list.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+}
