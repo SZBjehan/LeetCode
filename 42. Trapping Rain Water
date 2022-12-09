@@ -1,0 +1,29 @@
+class Solution {
+    public int trap(int[] height) {
+
+        if (height.length < 2) return 0;
+
+        int leftPointer = 0;
+        int rightPointer = height.length-1;
+
+        int leftMax = height[leftPointer];
+        int rightMax = height[rightPointer];
+
+        int ans = 0; 
+
+        while( leftPointer < rightPointer ){
+            if( leftMax < rightMax){
+                leftPointer++;
+                leftMax = Math.max(leftMax, height[leftPointer]);
+                ans = ans + (leftMax - height[leftPointer]);
+            }else{
+                rightPointer--;
+                rightMax = Math.max(rightMax, height[rightPointer]);
+                ans = ans + (rightMax - height[rightPointer]);
+
+            }
+
+        }
+        return ans;
+    }
+}
