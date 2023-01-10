@@ -1,0 +1,32 @@
+class Solution {
+    public int trailingZeroes(int n) {
+        
+        // long fact = 1;
+        // for(int i = 1; i <= n; ++i){
+        //     fact *= i;
+        // }
+
+        // int count=0;
+        // if(fact%10 == 0){
+        //     while(fact%10 == 0){
+        //         fact=fact/10;
+        //         count++;
+        //     }
+        //     return count;
+        // }
+        // return count;
+
+        int zeros = 0;
+        for (int i=5; i <= n; i += 5) {
+            int num = i;
+            while (num % 5 == 0) {
+                num /= 5;
+                zeros++;
+            }
+        }
+        return zeros;
+
+        // return n/3125+n/625+n/125+n/25+n/5;
+
+    }
+}
