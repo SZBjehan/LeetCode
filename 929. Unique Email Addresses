@@ -1,0 +1,21 @@
+class Solution {
+    public int numUniqueEmails(String[] emails) {
+        Set<String> res = new HashSet<>();
+        for(String email : emails){
+            res.add(getShortEmail(email));
+        }
+        return res.size();
+    }
+    
+    public String getShortEmail(String email){
+        String temp = email.substring(0, email.indexOf("@"));
+        String end = email.substring(email.indexOf("@"), email.length());
+        temp = temp.replaceAll("\\.", "");
+        int plus = temp.indexOf("+");
+        if(plus == -1){
+            return temp + end;
+        }else{
+            return temp.substring(0,plus) + end;
+        }
+    }
+}
