@@ -1,0 +1,19 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int res = nums[0];
+        boolean foundDuplicate;
+        for (int i=0; i<nums.length; i++){
+            foundDuplicate = false;
+            for(int j=0; j<nums.length; j++){
+                if(j!=i && nums[i]==nums[j]){
+                    foundDuplicate = true;
+                }
+            }
+            if(foundDuplicate == false){
+                res=nums[i];
+                break;
+            }
+        }
+        return res;
+    }
+}
