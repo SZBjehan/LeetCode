@@ -1,0 +1,26 @@
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        char[] c = s.toCharArray();  
+        char[] g = goal.toCharArray();  
+
+        for(int i=0; i<c.length ; i++){
+            if(Arrays.equals(c, g)){
+                return true;
+            }else{
+                c = LeftRotate(c);
+            }
+        }
+
+        return false;
+
+    }
+    public char[] LeftRotate(char[] a){
+        char temp1=a[0];
+        for(int i=0;i<a.length-1;i++){
+            a[i]=a[i+1];
+        }
+        a[a.length-1]=temp1;
+
+        return a;
+    }
+}
