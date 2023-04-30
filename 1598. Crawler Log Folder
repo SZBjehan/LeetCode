@@ -1,0 +1,20 @@
+class Solution {
+    public int minOperations(String[] logs) {
+        
+        int depth = 0;
+
+        for(String log : logs){
+            if(log.startsWith("./")){
+            }
+            else if(log.startsWith("../")){
+                depth--;
+                depth = depth < 0 ? 0 : depth;
+            } else{
+                depth++;
+            }
+        }
+        return depth < 0 
+                ? 0
+                : depth;
+    }
+}
