@@ -1,0 +1,38 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+
+        int n = nums.length;
+        k %= n;
+
+        reverse(0, n - 1,nums);
+        reverse(0, k - 1,nums);
+        reverse(k, n - 1,nums);
+    }
+
+    private void reverse(int i, int j, int[] nums) {
+        while (i < j) {
+            
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+
+            ++i;
+            --j;
+        }
+    }
+}
+
+class Solution {
+    // Simple Solution but Exceeds Time Limit 
+    // public void rotate(int[] nums, int k) {
+
+    //     for(int j=0; j<k; j++){
+    //         int temp = nums[nums.length - 1];
+    //         for(int i=nums.length-1; i>0;i--){
+    //             nums[i] = nums[i-1];
+    //         }
+    //         nums[0] = temp;
+    //     }
+
+    // }
+}
