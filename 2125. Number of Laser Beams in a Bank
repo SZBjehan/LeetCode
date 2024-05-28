@@ -1,0 +1,24 @@
+class Solution {
+    public int numberOfBeams(String[] bank) {
+        int tot=0;
+        int temp=0;
+        int count=0;
+        for(int i=0; i<bank.length; i++){
+            count = 0; 
+            for(int j=0; j<bank[i].length(); j++){
+                
+                if(bank[i].charAt(j) == '1'){
+                    count++;
+                }
+                if(j == (bank[i].length()-1)){
+                    if(count>0){
+                        int cross = count*temp;
+                        tot = tot+cross;
+                        temp = count;
+                    }
+                }
+            }
+        }
+        return tot;
+    }
+}
