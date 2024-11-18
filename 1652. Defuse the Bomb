@@ -30,3 +30,39 @@ class Solution {
     return output;
     }
 }
+
+
+
+
+#### Python
+class Solution(object):
+    def decrypt(self, code, k):
+        """
+        :type code: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        n = len(code)
+        output = [0] * n  
+        
+        if k == 0:
+            return output
+        
+        elif k > 0:
+            for i in range(n):
+                sum_val = 0
+                for j in range(1, k + 1):
+                    temp = (i + j) % n 
+                    sum_val += code[temp]
+                output[i] = sum_val
+        
+        elif k < 0:
+            for i in range(n):
+                sum_val = 0
+                for j in range(1, abs(k) + 1):
+                    temp = (i - j + n) % n 
+                    sum_val += code[temp]
+                output[i] = sum_val        
+        
+        return output
+        
